@@ -23,9 +23,19 @@
      <changefreq>daily</changefreq>
     </url>
         
+    
+
+    
+        
     <url>
-     <loc></loc>
-     <lastmod></lastmod>
+     <loc>/extensions/loader/</loc>
+     <lastmod>2016-12-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/extensions/preprocessor/</loc>
+     <lastmod>2016-12-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
