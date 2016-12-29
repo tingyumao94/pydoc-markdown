@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  <link rel="shortcut icon" href="./img/favicon.ico">
+  <title>Home - pyodoc-markdown Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="./css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Home";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/";
+  </script>
+  
+  <script src="./js/jquery-2.1.1.min.js"></script>
+  <script src="./js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="./js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> pyodoc-markdown Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href=".">Home</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#configuration">Configuration</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#syntax">Syntax</a></li>
+                
+                    <li><a class="toctree-l4" href="#cross-references">Cross-references</a></li>
+                
+                    <li><a class="toctree-l4" href="#sections">Sections</a></li>
+                
+                    <li><a class="toctree-l4" href="#code-blocks">Code Blocks</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#changes">Changes</a></li>
+                
+                    <li><a class="toctree-l4" href="#v200-devtip">v2.0.0 (devtip)</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>API Documentation</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="document/">Document</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="imp/">Import Utils</a>
+        
+    </li>
+
+        
+            
+    <ul class="subnav">
+    <li><span>Extension API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="extensions/loader/">Loader</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="extensions/preprocessor/">Preprocessor</a>
+        
+    </li>
+
+        
+    </ul>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">pyodoc-markdown Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/NiklasRosenstein/pydoc-markdown/edit/master/docs/index.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><strong>pydoc-markdown</strong> uses <a href="./www.mkdocs.org/">MkDocs</a> and extended <a href="https://pythonhosted.org/Markdown/">Markdown</a> syntax to generate
+beautiful Python API documentation. It is highly configurable and can be
+extended to work with arbitrary programming languages, see the <a href="docs/templates/extensions.md">Extension API</a>.
+Highly insipired by the <a href="https://keras.io/">Keras</a> Documentation.</p>
+<p><strong>Todo</strong></p>
+<ul>
+<li>[ ] Support <code>+</code> suffix to include documented members of a module/class</li>
+<li>[ ] Expand and link cross-references (eg. <code>#SomeClass</code>)</li>
+<li>[ ] Parse, format and link types listed in parameter/member/raise/return type
+      docstrings (eg. <code>someattr (int): This is...</code>)</li>
+</ul>
+<h2 id="configuration">Configuration</h2>
+<p><strong>pydoc-markdown</strong> only takes over the task of generating the Markdown
+documentation that can then be processed with <a href="./www.mkdocs.org/">MkDocs</a>. However, it can still
+combine both parts of the build process in a single command. You can put all
+configuration for <a href="./www.mkdocs.org/">MkDocs</a> into the <code>pydocmd.yml</code> configuration, or have
+it in a separate <code>mkdocs.yml</code> file.</p>
+<p><strong>pydocmd.yml</strong></p>
+<pre><code class="yaml">site_name: &quot;foobar Documentation&quot;
+
+generate:
+- baz/cool-stuff.md:
+  - foobar.baz:                 # Module docstring
+    # Indenting the following items to give them a smaller header size
+    - foobar.baz.CoolClass+     # Class docstring (+ to include members)
+    - foobar.baz.some_function  # Function docstring
+
+# MkDocs pages configuration, with some sugar.
+pages:
+- Home: index.md &lt;&lt; ../README.md
+- foobar.baz:
+  - Cool Stuff: baz/cool-stuff.md
+
+docs_dir: sources                                 # default
+gens_dir: _build/pydocmd                          # default (-&gt; MkDocs docs_dir)
+site_dir: _build/site                             # default
+theme:    readthedocs                             # default
+loader:   pydocmd.loader.PythonLoader             # default
+preprocessor: pydocmd.preprocessor.Preprocessor   # default
+</code></pre>
+
+<h2 id="syntax">Syntax</h2>
+<h3 id="cross-references">Cross-references</h3>
+<p>Symbols in the same namespace may be referenced by using a hash-symbol (<code>#</code>)
+directly followed by the symbols' name, including relative references. Note that
+using parentheses for function names is encouraged and will be ignored and
+automatically added when converting docstrings. Examples: <code>#ClassName.member</code> or
+<code>#mod.function()</code>.</p>
+<p>For absolute references for modules or members in names that are not available
+in the current global namespace, <code>#::mod.member</code> must be used (note the two
+preceeding two double-colons).</p>
+<p>For long reference names where only some part of the name should be displayed,
+the syntax <code>#X~some.reference.name</code> can be used, where <code>X</code> is the number of
+elements to keep. If <code>X</code> is omitted, it will be assumed 1. Example:
+<code>#~some.reference.name</code> results in only <code>name</code> being displayed.</p>
+<p>In order to append additional characters that are not included in the actual
+reference name, another hash-symbol can be used, like <code>#Signal#s</code>.</p>
+<p><strong>pydoc-markdown</strong> can be extended to find other cross-references using the
+<a href="docs/templates/extensions.md">Extension API</a>.</p>
+<h3 id="sections">Sections</h3>
+<p>Sections can be generated with the Markdown <code># &lt;Title&gt;</code> syntax. It is important
+to add a whitespace after the hash-symbol (<code>#</code>), as otherwise it would represent
+a cross-reference. Some special sections alter the rendered result of their
+content, including</p>
+<ul>
+<li>Arguments (1)</li>
+<li>Parameters (1)</li>
+<li>Attributes (1)</li>
+<li>Members (1)</li>
+<li>Raises (2)</li>
+<li>Returns (2)</li>
+</ul>
+<p>(1): Lines beginning with <code>&lt;ident&gt; [(&lt;type&gt;[, ...])]:</code> are treated as
+argument/parameter or attribute/member declarations. Types listed inside the
+parenthesis (optional) are cross-linked, if possible. For attribute/member
+declarations, the identifier is typed in a monospace font.</p>
+<p>(2): Lines beginning with <code>&lt;type&gt;[, ...]:</code> are treated as raise/return type
+declarations and the type names are cross-linked, if possible.</p>
+<p>Lines following a name's description are considered part of the most recent
+documentation unless separated by another declaration or an empty line. <code>&lt;type&gt;</code>
+placeholders can also be tuples in the form <code>(&lt;type&gt;[, ...])</code>.</p>
+<h3 id="code-blocks">Code Blocks</h3>
+<p>GitHub-style Markdown code-blocks with language annotations can be used.</p>
+<pre><code>```python
+&gt;&gt;&gt; for i in range(100):
+...
+```
+</code></pre>
+<hr />
+<h2 id="changes">Changes</h2>
+<h3 id="v200-devtip">v2.0.0 (devtip)</h3>
+<ul>
+<li>Complete overhaul of <strong>pydoc-markdown</strong> employing MkDocs and the Markdown module.</li>
+</ul>
+<hr />
+<p align="center">Copyright &copy; 2017  Niklas Rosenstein</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="document/" class="btn btn-neutral float-right" title="Document">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/NiklasRosenstein/pydoc-markdown" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+        <span style="margin-left: 15px"><a href="document/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="./js/theme.js"></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 0.16.1
+Build Date UTC : 2016-12-29 00:47:35
+-->

@@ -1,0 +1,134 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "pydoc-markdown\n uses \nMkDocs\n and extended \nMarkdown\n syntax to generate\nbeautiful Python API documentation. It is highly configurable and can be\nextended to work with arbitrary programming languages, see the \nExtension API\n.\nHighly insipired by the \nKeras\n Documentation.\n\n\nTodo\n\n\n\n\n[ ] Support \n+\n suffix to include documented members of a module/class\n\n\n[ ] Expand and link cross-references (eg. \n#SomeClass\n)\n\n\n[ ] Parse, format and link types listed in parameter/member/raise/return type\n      docstrings (eg. \nsomeattr (int): This is...\n)\n\n\n\n\nConfiguration\n\n\npydoc-markdown\n only takes over the task of generating the Markdown\ndocumentation that can then be processed with \nMkDocs\n. However, it can still\ncombine both parts of the build process in a single command. You can put all\nconfiguration for \nMkDocs\n into the \npydocmd.yml\n configuration, or have\nit in a separate \nmkdocs.yml\n file.\n\n\npydocmd.yml\n\n\nsite_name: \"foobar Documentation\"\n\ngenerate:\n- baz/cool-stuff.md:\n  - foobar.baz:                 # Module docstring\n    # Indenting the following items to give them a smaller header size\n    - foobar.baz.CoolClass+     # Class docstring (+ to include members)\n    - foobar.baz.some_function  # Function docstring\n\n# MkDocs pages configuration, with some sugar.\npages:\n- Home: index.md << ../README.md\n- foobar.baz:\n  - Cool Stuff: baz/cool-stuff.md\n\ndocs_dir: sources                                 # default\ngens_dir: _build/pydocmd                          # default (-> MkDocs docs_dir)\nsite_dir: _build/site                             # default\ntheme:    readthedocs                             # default\nloader:   pydocmd.loader.PythonLoader             # default\npreprocessor: pydocmd.preprocessor.Preprocessor   # default\n\n\n\n\nSyntax\n\n\nCross-references\n\n\nSymbols in the same namespace may be referenced by using a hash-symbol (\n#\n)\ndirectly followed by the symbols' name, including relative references. Note that\nusing parentheses for function names is encouraged and will be ignored and\nautomatically added when converting docstrings. Examples: \n#ClassName.member\n or\n\n#mod.function()\n.\n\n\nFor absolute references for modules or members in names that are not available\nin the current global namespace, \n#::mod.member\n must be used (note the two\npreceeding two double-colons).\n\n\nFor long reference names where only some part of the name should be displayed,\nthe syntax \n#X~some.reference.name\n can be used, where \nX\n is the number of\nelements to keep. If \nX\n is omitted, it will be assumed 1. Example:\n\n#~some.reference.name\n results in only \nname\n being displayed.\n\n\nIn order to append additional characters that are not included in the actual\nreference name, another hash-symbol can be used, like \n#Signal#s\n.\n\n\npydoc-markdown\n can be extended to find other cross-references using the\n\nExtension API\n.\n\n\nSections\n\n\nSections can be generated with the Markdown \n# <Title>\n syntax. It is important\nto add a whitespace after the hash-symbol (\n#\n), as otherwise it would represent\na cross-reference. Some special sections alter the rendered result of their\ncontent, including\n\n\n\n\nArguments (1)\n\n\nParameters (1)\n\n\nAttributes (1)\n\n\nMembers (1)\n\n\nRaises (2)\n\n\nReturns (2)\n\n\n\n\n(1): Lines beginning with \n<ident> [(<type>[, ...])]:\n are treated as\nargument/parameter or attribute/member declarations. Types listed inside the\nparenthesis (optional) are cross-linked, if possible. For attribute/member\ndeclarations, the identifier is typed in a monospace font.\n\n\n(2): Lines beginning with \n<type>[, ...]:\n are treated as raise/return type\ndeclarations and the type names are cross-linked, if possible.\n\n\nLines following a name's description are considered part of the most recent\ndocumentation unless separated by another declaration or an empty line. \n<type>\n\nplaceholders can also be tuples in the form \n(<type>[, ...])\n.\n\n\nCode Blocks\n\n\nGitHub-style Markdown code-blocks with language annotations can be used.\n\n\n```python\n>>> for i in range(100):\n...\n```\n\n\n\n\n\nChanges\n\n\nv2.0.0 (devtip)\n\n\n\n\nComplete overhaul of \npydoc-markdown\n employing MkDocs and the Markdown module.\n\n\n\n\n\n\nCopyright \u00a9 2017  Niklas Rosenstein",
+            "title": "Home"
+        },
+        {
+            "location": "/#configuration",
+            "text": "pydoc-markdown  only takes over the task of generating the Markdown\ndocumentation that can then be processed with  MkDocs . However, it can still\ncombine both parts of the build process in a single command. You can put all\nconfiguration for  MkDocs  into the  pydocmd.yml  configuration, or have\nit in a separate  mkdocs.yml  file.  pydocmd.yml  site_name: \"foobar Documentation\"\n\ngenerate:\n- baz/cool-stuff.md:\n  - foobar.baz:                 # Module docstring\n    # Indenting the following items to give them a smaller header size\n    - foobar.baz.CoolClass+     # Class docstring (+ to include members)\n    - foobar.baz.some_function  # Function docstring\n\n# MkDocs pages configuration, with some sugar.\npages:\n- Home: index.md << ../README.md\n- foobar.baz:\n  - Cool Stuff: baz/cool-stuff.md\n\ndocs_dir: sources                                 # default\ngens_dir: _build/pydocmd                          # default (-> MkDocs docs_dir)\nsite_dir: _build/site                             # default\ntheme:    readthedocs                             # default\nloader:   pydocmd.loader.PythonLoader             # default\npreprocessor: pydocmd.preprocessor.Preprocessor   # default",
+            "title": "Configuration"
+        },
+        {
+            "location": "/#syntax",
+            "text": "",
+            "title": "Syntax"
+        },
+        {
+            "location": "/#cross-references",
+            "text": "Symbols in the same namespace may be referenced by using a hash-symbol ( # )\ndirectly followed by the symbols' name, including relative references. Note that\nusing parentheses for function names is encouraged and will be ignored and\nautomatically added when converting docstrings. Examples:  #ClassName.member  or #mod.function() .  For absolute references for modules or members in names that are not available\nin the current global namespace,  #::mod.member  must be used (note the two\npreceeding two double-colons).  For long reference names where only some part of the name should be displayed,\nthe syntax  #X~some.reference.name  can be used, where  X  is the number of\nelements to keep. If  X  is omitted, it will be assumed 1. Example: #~some.reference.name  results in only  name  being displayed.  In order to append additional characters that are not included in the actual\nreference name, another hash-symbol can be used, like  #Signal#s .  pydoc-markdown  can be extended to find other cross-references using the Extension API .",
+            "title": "Cross-references"
+        },
+        {
+            "location": "/#sections",
+            "text": "Sections can be generated with the Markdown  # <Title>  syntax. It is important\nto add a whitespace after the hash-symbol ( # ), as otherwise it would represent\na cross-reference. Some special sections alter the rendered result of their\ncontent, including   Arguments (1)  Parameters (1)  Attributes (1)  Members (1)  Raises (2)  Returns (2)   (1): Lines beginning with  <ident> [(<type>[, ...])]:  are treated as\nargument/parameter or attribute/member declarations. Types listed inside the\nparenthesis (optional) are cross-linked, if possible. For attribute/member\ndeclarations, the identifier is typed in a monospace font.  (2): Lines beginning with  <type>[, ...]:  are treated as raise/return type\ndeclarations and the type names are cross-linked, if possible.  Lines following a name's description are considered part of the most recent\ndocumentation unless separated by another declaration or an empty line.  <type> \nplaceholders can also be tuples in the form  (<type>[, ...]) .",
+            "title": "Sections"
+        },
+        {
+            "location": "/#code-blocks",
+            "text": "GitHub-style Markdown code-blocks with language annotations can be used.  ```python\n>>> for i in range(100):\n...\n```",
+            "title": "Code Blocks"
+        },
+        {
+            "location": "/#changes",
+            "text": "",
+            "title": "Changes"
+        },
+        {
+            "location": "/#v200-devtip",
+            "text": "Complete overhaul of  pydoc-markdown  employing MkDocs and the Markdown module.    Copyright \u00a9 2017  Niklas Rosenstein",
+            "title": "v2.0.0 (devtip)"
+        },
+        {
+            "location": "/document/",
+            "text": "pydocmd.document\n\n\nThis module implements the structural representation of an API documentation\nin separate documents and symbolic names. The final documentation is rendered\nfrom this structured representation.\n\n\n\n\nSection\n\n\nSection(doc, identifier=None, title=None, depth=1, content=None)\n\n\n\n\nA section represents a part of a #Document. It contains Markdown-formatted\ncontent that will be rendered into a file at some point.\n\n\nAttributes\n\n\n\n\ndoc (Document)\n: The document that the section belongs to.\n\n\nidentifier (str, None)\n: The globally unique identifier of the section. This\n  identifier usually matches the name of the element that the section\n  describes (eg. a class or function) and will be used for cross-referencing.\n\n\ntitle (str, None)\n: The title of the section. If specified, it will be\n  rendered before \nsection.content\n and the header-size will depend on\n  the \nsection.depth\n.\n\n\ndepth (int)\n: The depth of the section, defaults to 1. Currently only affects\n  the header-size that is rendered for the \nsection.title\n.\n\n\ncontent (str)\n: The Markdown-formatted content of the section.\n\n\n\n\n\n\nDocument\n\n\nDocument(index, url)\n\n\n\n\nRepresents a single document that may contain several #Section#s. Every\ndocument \nmust\n have a relative URL associated with it.\n\n\nAttributes\n\n\n\n\nindex (Index)\n: The index that the document belongs to.\n\n\nurl (str)\n: The relative URL of the document.\n\n\n\n\n\n\nIndex\n\n\nIndex()\n\n\n\n\nThe index manages all documents and sections globally. It keeps track of\nthe symbolic names allocated for the sections to be able to link to them\nfrom other sections.\n\n\nAttributes\n\n\n\n\ndocuments (dict)\n:\n\n\nsections (dict)\n:",
+            "title": "Document"
+        },
+        {
+            "location": "/document/#pydocmddocument",
+            "text": "This module implements the structural representation of an API documentation\nin separate documents and symbolic names. The final documentation is rendered\nfrom this structured representation.",
+            "title": "pydocmd.document"
+        },
+        {
+            "location": "/document/#section",
+            "text": "Section(doc, identifier=None, title=None, depth=1, content=None)  A section represents a part of a #Document. It contains Markdown-formatted\ncontent that will be rendered into a file at some point.  Attributes   doc (Document) : The document that the section belongs to.  identifier (str, None) : The globally unique identifier of the section. This\n  identifier usually matches the name of the element that the section\n  describes (eg. a class or function) and will be used for cross-referencing.  title (str, None) : The title of the section. If specified, it will be\n  rendered before  section.content  and the header-size will depend on\n  the  section.depth .  depth (int) : The depth of the section, defaults to 1. Currently only affects\n  the header-size that is rendered for the  section.title .  content (str) : The Markdown-formatted content of the section.",
+            "title": "Section"
+        },
+        {
+            "location": "/document/#document",
+            "text": "Document(index, url)  Represents a single document that may contain several #Section#s. Every\ndocument  must  have a relative URL associated with it.  Attributes   index (Index) : The index that the document belongs to.  url (str) : The relative URL of the document.",
+            "title": "Document"
+        },
+        {
+            "location": "/document/#index",
+            "text": "Index()  The index manages all documents and sections globally. It keeps track of\nthe symbolic names allocated for the sections to be able to link to them\nfrom other sections.  Attributes   documents (dict) :  sections (dict) :",
+            "title": "Index"
+        },
+        {
+            "location": "/imp/",
+            "text": "pydocmd.imp\n\n\nThis module provides utilities for importing Python objects by name.\n\n\n\n\nimport_module\n\n\nimport_module(name)\n\n\n\n\nImports a Python module assuming that the whole \nname\n identifies only a\nPython module and no symbol inside a Python module.\n\n\n\n\nimport_object\n\n\nimport_object(name)\n\n\n\n\nLike #import_object_with_scope() but returns only the object.\n\n\n\n\nimport_object_with_scope\n\n\nimport_object_with_scope(name)\n\n\n\n\nImports a Python object by an absolute identifier.\n\n\nArguments\n\n\n\n\nname (str)\n: The name of the Python object to import.\n\n\n\n\nReturns\n\n\n(any, Module)\n: The object and the module that contains it. Note that\n  for plain modules loaded with this function, both elements of the\n  tuple may be the same object.",
+            "title": "Import Utils"
+        },
+        {
+            "location": "/imp/#pydocmdimp",
+            "text": "This module provides utilities for importing Python objects by name.",
+            "title": "pydocmd.imp"
+        },
+        {
+            "location": "/imp/#import_module",
+            "text": "import_module(name)  Imports a Python module assuming that the whole  name  identifies only a\nPython module and no symbol inside a Python module.",
+            "title": "import_module"
+        },
+        {
+            "location": "/imp/#import_object",
+            "text": "import_object(name)  Like #import_object_with_scope() but returns only the object.",
+            "title": "import_object"
+        },
+        {
+            "location": "/imp/#import_object_with_scope",
+            "text": "import_object_with_scope(name)  Imports a Python object by an absolute identifier.  Arguments   name (str) : The name of the Python object to import.   Returns  (any, Module) : The object and the module that contains it. Note that\n  for plain modules loaded with this function, both elements of the\n  tuple may be the same object.",
+            "title": "import_object_with_scope"
+        },
+        {
+            "location": "/extensions/loader/",
+            "text": "pydocmd.loader\n\n\nThis module provides implementations to load documentation information from\nan identifier as it is specified in the \npydocmd.yml:generate\n configuration\nkey. A loader basically takes care of loading the documentation content for\nthat name, but is not supposed to apply preprocessing.\n\n\n\n\nPythonLoader\n\n\nPythonLoader(config)\n\n\n\n\nExpects absolute identifiers to import with #import_object_with_scope().\n\n\n\n\nload_section\n\n\nPythonLoader.load_section(section)\n\n\n\n\nLoads the contents of a #Section. The \nsection.identifier\n is the name\nof the object that we need to load.\n\n\nArguments\n\n\n\n\nsection (Section)\n: The section to load. Fill the \nsection.title\n and\n    \nsection.content\n values. Optionally, \nsection.loader_context\n can\n    be filled with custom arbitrary data to reference at a later point.",
+            "title": "Loader"
+        },
+        {
+            "location": "/extensions/loader/#pydocmdloader",
+            "text": "This module provides implementations to load documentation information from\nan identifier as it is specified in the  pydocmd.yml:generate  configuration\nkey. A loader basically takes care of loading the documentation content for\nthat name, but is not supposed to apply preprocessing.",
+            "title": "pydocmd.loader"
+        },
+        {
+            "location": "/extensions/loader/#pythonloader",
+            "text": "PythonLoader(config)  Expects absolute identifiers to import with #import_object_with_scope().",
+            "title": "PythonLoader"
+        },
+        {
+            "location": "/extensions/loader/#load_section",
+            "text": "PythonLoader.load_section(section)  Loads the contents of a #Section. The  section.identifier  is the name\nof the object that we need to load.  Arguments   section (Section) : The section to load. Fill the  section.title  and\n     section.content  values. Optionally,  section.loader_context  can\n    be filled with custom arbitrary data to reference at a later point.",
+            "title": "load_section"
+        },
+        {
+            "location": "/extensions/preprocessor/",
+            "text": "pydocmd.preprocessor\n\n\nThis module implements preprocessing Markdown-like docstrings and converts\nit to fully markdown compatible markup.\n\n\n\n\nPreprocessor\n\n\nPreprocessor(config)\n\n\n\n\nThis class implements the basic preprocessing.\n\n\n\n\npreprocess_section\n\n\nPreprocessor.preprocess_section(section)\n\n\n\n\nPreprocess the contents of \nsection\n.",
+            "title": "Preprocessor"
+        },
+        {
+            "location": "/extensions/preprocessor/#pydocmdpreprocessor",
+            "text": "This module implements preprocessing Markdown-like docstrings and converts\nit to fully markdown compatible markup.",
+            "title": "pydocmd.preprocessor"
+        },
+        {
+            "location": "/extensions/preprocessor/#preprocessor",
+            "text": "Preprocessor(config)  This class implements the basic preprocessing.",
+            "title": "Preprocessor"
+        },
+        {
+            "location": "/extensions/preprocessor/#preprocess_section",
+            "text": "Preprocessor.preprocess_section(section)  Preprocess the contents of  section .",
+            "title": "preprocess_section"
+        }
+    ]
+}
