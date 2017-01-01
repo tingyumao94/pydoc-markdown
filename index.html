@@ -52,6 +52,9 @@
         
             <ul>
             
+                <li class="toctree-l3"><a href="#building">Building</a></li>
+                
+            
                 <li class="toctree-l3"><a href="#configuration">Configuration</a></li>
                 
             
@@ -163,7 +166,23 @@ Highly insipired by the <a href="https://keras.io/">Keras</a> Documentation.</p>
 <li>[ ] Expand and link cross-references (eg. <code>#SomeClass</code>)</li>
 <li>[ ] Parse, format and link types listed in parameter/member/raise/return type
       docstrings (eg. <code>someattr (int): This is...</code>)</li>
+<li>[ ] <code>pydocmd new</code> should not start a new MkDocs project, but a pydoc-markdown
+      project :)</li>
 </ul>
+<h2 id="building">Building</h2>
+<p>The <code>pydocmd</code> command is a wrapper around <code>mkdocs</code> and supports the same
+commands. It will simply autogenerate the documentation files and then invoke
+MkDocs. If you only want to run the auto-generation, simply use the <code>generate</code>
+subcommand.</p>
+<pre><code>$ pydocmd --help
+usage: pydocmd [-h] {generate,build,gh-deploy,json,new,serve}
+
+positional arguments:
+{generate,build,gh-deploy,json,new,serve}
+
+optional arguments:
+-h, --help            show this help message and exit
+</code></pre>
 <h2 id="configuration">Configuration</h2>
 <p><strong>pydoc-markdown</strong> only takes over the task of generating the Markdown
 documentation that can then be processed with <a href="./www.mkdocs.org/">MkDocs</a>. However, it can still
@@ -297,5 +316,5 @@ placeholders can also be tuples in the form <code>(&lt;type&gt;[, ...])</code>.<
 
 <!--
 MkDocs version : 0.16.1
-Build Date UTC : 2016-12-29 00:50:10
+Build Date UTC : 2017-01-01 08:47:25
 -->
