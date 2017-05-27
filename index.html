@@ -45,81 +45,78 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
 	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 current">
-        <a class="current" href=".">Home</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#building">Building</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#configuration">Configuration</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#syntax">Syntax</a></li>
-                
-                    <li><a class="toctree-l4" href="#cross-references">Cross-references</a></li>
-                
-                    <li><a class="toctree-l4" href="#sections">Sections</a></li>
-                
-                    <li><a class="toctree-l4" href="#code-blocks">Code Blocks</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#changes">Changes</a></li>
-                
-                    <li><a class="toctree-l4" href="#v200-devtip">v2.0.0 (devtip)</a></li>
-                
-            
-            </ul>
-        
-    </li>
-<li>
-          
-            <li>
+            <li class="toctree-l1 current">
+		
+    <a class="current" href=".">Home</a>
     <ul class="subnav">
-    <li><span>API Documentation</span></li>
-
-        
             
-    <li class="toctree-l1 ">
-        <a class="" href="document/">Document</a>
-        
-    </li>
+    <li class="toctree-l2"><a href="#pydocmd">pydocmd</a></li>
+    
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="imp/">Import Utils</a>
-        
-    </li>
+    <li class="toctree-l2"><a href="#installation">Installation</a></li>
+    
 
+    <li class="toctree-l2"><a href="#usage">Usage</a></li>
+    
+
+    <li class="toctree-l2"><a href="#syntax">Syntax</a></li>
+    
+        <ul>
         
+            <li><a class="toctree-l3" href="#cross-references">Cross-references</a></li>
+        
+            <li><a class="toctree-l3" href="#sections">Sections</a></li>
+        
+            <li><a class="toctree-l3" href="#code-blocks">Code Blocks</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l2"><a href="#changes">Changes</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#v201">v2.0.1</a></li>
+        
+            <li><a class="toctree-l3" href="#v200">v2.0.0</a></li>
+        
+        </ul>
+    
+
     </ul>
-<li>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API Documentation</span>
     <ul class="subnav">
-    <li><span>Extension API</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="extensions/loader/">Loader</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="extensions/preprocessor/">Preprocessor</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="document/">Document</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="imp/">Import Utils</a>
+                </li>
     </ul>
-<li>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Extension API</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="extensions/loader/">Loader</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="extensions/preprocessor/">Preprocessor</a>
+                </li>
+    </ul>
+	    </li>
           
         </ul>
       </div>
@@ -156,61 +153,72 @@
           <div role="main">
             <div class="section">
               
-                <p><strong>pydoc-markdown</strong> uses <a href="./www.mkdocs.org/">MkDocs</a> and extended <a href="https://pythonhosted.org/Markdown/">Markdown</a> syntax to generate
-beautiful Python API documentation. It is highly configurable and can be
-extended to work with arbitrary programming languages, see the <a href="https://niklasrosenstein.github.io/pydoc-markdown/extensions/loader/">Extension API</a>.
-Highly insipired by the <a href="https://keras.io/">Keras</a> Documentation.</p>
+                <h2 id="pydocmd">pydocmd</h2>
+<p>&ndash; <em>insipired by the <a href="https://keras.io/">Keras</a> Documentation</em></p>
+<p>Pydocmd uses <a href="./www.mkdocs.org/">MkDocs</a> and extended <a href="https://pythonhosted.org/Markdown/">Markdown</a> syntax to generate beautiful
+Python API documentation.</p>
 <p><strong>Todo</strong></p>
 <ul>
-<li>[ ] Support <code>+</code> suffix to include documented members of a module/class</li>
+<li>[x] Support <code>+</code> suffix to include documented members of a module/class</li>
 <li>[ ] Expand and link cross-references (eg. <code>#SomeClass</code>)</li>
 <li>[ ] Parse, format and link types listed in parameter/member/raise/return type
       docstrings (eg. <code>someattr (int): This is...</code>)</li>
-<li>[ ] <code>pydocmd new</code> should not start a new MkDocs project, but a pydoc-markdown
-      project :)</li>
 </ul>
-<h2 id="building">Building</h2>
-<p>The <code>pydocmd</code> command is a wrapper around <code>mkdocs</code> and supports the same
-commands. It will simply autogenerate the documentation files and then invoke
-MkDocs. If you only want to run the auto-generation, simply use the <code>generate</code>
-subcommand.</p>
-<pre><code>$ pydocmd --help
-usage: pydocmd [-h] {generate,build,gh-deploy,json,new,serve}
-
-positional arguments:
-{generate,build,gh-deploy,json,new,serve}
-
-optional arguments:
--h, --help            show this help message and exit
+<h2 id="installation">Installation</h2>
+<pre><code>pip install pydoc-markdown
+pip install git+https://github.com/NiklasRosenstein/pydoc-markdown.git  # latest development version
 </code></pre>
-<h2 id="configuration">Configuration</h2>
-<p><strong>pydoc-markdown</strong> only takes over the task of generating the Markdown
-documentation that can then be processed with <a href="./www.mkdocs.org/">MkDocs</a>. However, it can still
-combine both parts of the build process in a single command. You can put all
-configuration for <a href="./www.mkdocs.org/">MkDocs</a> into the <code>pydocmd.yml</code> configuration, or have
-it in a separate <code>mkdocs.yml</code> file.</p>
-<p><strong>pydocmd.yml</strong></p>
-<pre><code class="yaml">site_name: &quot;foobar Documentation&quot;
+<h2 id="usage">Usage</h2>
+<p>Pydocmd can generate plain Markdown files from Python modules using the
+<code>pydocmd simple</code> command. Specify one or more module names on the command-line.
+Supports the <code>+</code> syntax to include members of the module (or <code>++</code> to include
+members of the members, etc.)</p>
+<pre><code>pydocmd simple mypackage+ mypackage.mymodule+ &gt; docs.md
+</code></pre>
+<p>Alternatively, pydocmd wraps the MkDocs command-line interface and generates
+the markdown pages beforehand. Simply use <code>pydocmd build</code> to build the
+documentation, or <code>pydocmd serve</code> to serve the documentation on a local HTTP
+server. The <code>pydocmd gh-deploy</code> from MkDocs is also supported.</p>
+<p>A configuration file <code>pydocmd.yml</code> is required to use pydocmd in this mode.
+Below is an example configuration. To get started, create <code>docs/</code> directory
+and a file <code>pydocmd.yml</code> inside of it. Copy the configuration below and
+adjust it to your needs, then run <code>pydocmd build</code> from the <code>docs/</code> directory.</p>
+<pre><code class="yaml">site_name: &quot;My Documentation&quot;
 
+# This tells pydocmd which pages to generate from which Python modules,
+# functions and classes. At the first level is the page name, below that
+# is a tree of Python member names (modules, classes, etc.) that should be
+# documented. Higher indentation leads to smaller header size.
 generate:
 - baz/cool-stuff.md:
-  - foobar.baz:                 # Module docstring
-    # Indenting the following items to give them a smaller header size
-    - foobar.baz.CoolClass+     # Class docstring (+ to include members)
-    - foobar.baz.some_function  # Function docstring
+  - foobar.baz:
+    - foobar.baz.CoolClass+     # (+ to include members)
+    - foobar.baz.some_function
+- baz/more-stuff.md:
+  - foobar.more++               # (++ to include members, and their members)
 
-# MkDocs pages configuration, with some sugar.
+# MkDocs pages configuration. The `&lt;&lt;` operator is sugar added by pydocmd
+# that allows you to use an external Markdown file (eg. your project's README)
+# in the documentation. The path must be relative to current working directory.
 pages:
 - Home: index.md &lt;&lt; ../README.md
 - foobar.baz:
   - Cool Stuff: baz/cool-stuff.md
 
-docs_dir: sources                                 # default
-gens_dir: _build/pydocmd                          # default (-&gt; MkDocs docs_dir)
-site_dir: _build/site                             # default
-theme:    readthedocs                             # default
-loader:   pydocmd.loader.PythonLoader             # default
-preprocessor: pydocmd.preprocessor.Preprocessor   # default
+# These options all show off their default values. You don't have to add
+# them to your configuration if you're fine with the default.
+docs_dir: sources
+gens_dir: _build/pydocmd     # This will end up as the MkDocs 'docs_dir'
+site_dir: _build/site
+theme:    readthedocs
+loader:   pydocmd.loader.PythonLoader
+preprocessor: pydocmd.preprocessor.Preprocessor
+
+# Additional search path for your Python module. If you use Pydocmd from a
+# subdirectory of your project (eg. docs/), you may want to add the parent
+# directory here.
+additional_search_paths:
+- ..
 </code></pre>
 
 <h2 id="syntax">Syntax</h2>
@@ -262,7 +270,16 @@ placeholders can also be tuples in the form <code>(&lt;type&gt;[, ...])</code>.<
 </code></pre>
 <hr />
 <h2 id="changes">Changes</h2>
-<h3 id="v200-devtip">v2.0.0 (devtip)</h3>
+<h3 id="v201">v2.0.1</h3>
+<ul>
+<li>Support <code>additional_search_path</code> key in configuration</li>
+<li>Render headers as HTML <code>&lt;hX&gt;</code> tags rather than Markdown tags, so we
+  assign a proper ID to them</li>
+<li>Fix #21 -- AttributeError: 'module' object has no attribute 'signature'</li>
+<li>Now requires the <code>six</code> module</li>
+<li>FIx #22 -- No blank space after header does not render codeblocks</li>
+</ul>
+<h3 id="v200">v2.0.0</h3>
 <ul>
 <li>Complete overhaul of <strong>pydoc-markdown</strong> employing MkDocs and the Markdown module.</li>
 </ul>
@@ -301,7 +318,7 @@ placeholders can also be tuples in the form <code>(&lt;type&gt;[, ...])</code>.<
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/NiklasRosenstein/pydoc-markdown" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/NiklasRosenstein/pydoc-markdown" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
       
@@ -315,6 +332,6 @@ placeholders can also be tuples in the form <code>(&lt;type&gt;[, ...])</code>.<
 </html>
 
 <!--
-MkDocs version : 0.16.1
-Build Date UTC : 2017-01-01 08:47:25
+MkDocs version : 0.16.3
+Build Date UTC : 2017-05-27 10:31:36
 -->

@@ -18,7 +18,7 @@
   <script>
     // Current page data
     var mkdocs_page_name = "Loader";
-    var mkdocs_page_input_path = "extensions/loader.md";
+    var mkdocs_page_input_path = "extensions\\loader.md";
     var mkdocs_page_url = "/extensions/loader/";
   </script>
   
@@ -45,66 +45,45 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
 	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../..">Home</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API Documentation</span>
     <ul class="subnav">
-    <li><span>API Documentation</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../document/">Document</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../imp/">Import Utils</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../../document/">Document</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../imp/">Import Utils</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Extension API</span>
     <ul class="subnav">
-    <li><span>Extension API</span></li>
-
-        
+                <li class=" current">
+                    
+    <a class="current" href="./">Loader</a>
+    <ul class="subnav">
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Loader</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#pydocmdloader">pydocmd.loader</a></li>
-                
-                    <li><a class="toctree-l4" href="#pythonloader">PythonLoader</a></li>
-                
-            
-            </ul>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../preprocessor/">Preprocessor</a>
-        
-    </li>
-
-        
     </ul>
-<li>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../preprocessor/">Preprocessor</a>
+                </li>
+    </ul>
+	    </li>
           
         </ul>
       </div>
@@ -135,7 +114,7 @@
     <li>Loader</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/NiklasRosenstein/pydoc-markdown/edit/master/docs/extensions/loader.md"
+        <a href="https://github.com/NiklasRosenstein/pydoc-markdown/edit/master/docs/extensions\loader.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -145,21 +124,21 @@
           <div role="main">
             <div class="section">
               
-                <p><a name="pydocmd.loader"></a></p>
-<h1 id="pydocmdloader">pydocmd.loader</h1>
+                <h1 id="pydocmd.loader">pydocmd.loader</h1>
+
 <p>This module provides implementations to load documentation information from
 an identifier as it is specified in the <code>pydocmd.yml:generate</code> configuration
 key. A loader basically takes care of loading the documentation content for
 that name, but is not supposed to apply preprocessing.</p>
-<p><a name="pydocmd.loader.PythonLoader"></a></p>
-<h2 id="pythonloader">PythonLoader</h2>
-<pre><code class="python">PythonLoader(config)
+<h2 id="pydocmd.loader.PythonLoader">PythonLoader</h2>
+
+<pre><code class="python">PythonLoader(self, config)
 </code></pre>
 
 <p>Expects absolute identifiers to import with <code>import_object_with_scope()</code>.</p>
-<p><a name="pydocmd.loader.PythonLoader.load_section"></a></p>
-<h3 id="load_section">load_section</h3>
-<pre><code class="python">PythonLoader.load_section(section)
+<h3 id="pydocmd.loader.PythonLoader.load_section">load_section</h3>
+
+<pre><code class="python">PythonLoader.load_section(self, section)
 </code></pre>
 
 <p>Loads the contents of a <code>Section</code>. The <code>section.identifier</code> is the name
@@ -205,7 +184,7 @@ of the object that we need to load.</p>
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/NiklasRosenstein/pydoc-markdown" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/NiklasRosenstein/pydoc-markdown" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href="../../imp/" style="color: #fcfcfc;">&laquo; Previous</a></span>

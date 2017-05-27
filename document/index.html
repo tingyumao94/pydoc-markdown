@@ -45,70 +45,45 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
 	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="..">Home</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">API Documentation</span>
     <ul class="subnav">
-    <li><span>API Documentation</span></li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Document</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#pydocmddocument">pydocmd.document</a></li>
-                
-                    <li><a class="toctree-l4" href="#section">Section</a></li>
-                
-                    <li><a class="toctree-l4" href="#document">Document</a></li>
-                
-                    <li><a class="toctree-l4" href="#index">Index</a></li>
-                
-            
-            </ul>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../imp/">Import Utils</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
-          
-            <li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Document</a>
     <ul class="subnav">
-    <li><span>Extension API</span></li>
-
-        
             
-    <li class="toctree-l1 ">
-        <a class="" href="../extensions/loader/">Loader</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../extensions/preprocessor/">Preprocessor</a>
-        
-    </li>
-
-        
     </ul>
-<li>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../imp/">Import Utils</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Extension API</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../extensions/loader/">Loader</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../extensions/preprocessor/">Preprocessor</a>
+                </li>
+    </ul>
+	    </li>
           
         </ul>
       </div>
@@ -149,14 +124,14 @@
           <div role="main">
             <div class="section">
               
-                <p><a name="pydocmd.document"></a></p>
-<h1 id="pydocmddocument">pydocmd.document</h1>
+                <h1 id="pydocmd.document">pydocmd.document</h1>
+
 <p>This module implements the structural representation of an API documentation
 in separate documents and symbolic names. The final documentation is rendered
 from this structured representation.</p>
-<p><a name="pydocmd.document.Section"></a></p>
-<h2 id="section">Section</h2>
-<pre><code class="python">Section(doc, identifier=None, title=None, depth=1, content=None)
+<h2 id="pydocmd.document.Section">Section</h2>
+
+<pre><code class="python">Section(self, doc, identifier=None, title=None, depth=1, content=None)
 </code></pre>
 
 <p>A section represents a part of a <code>Document</code>. It contains Markdown-formatted
@@ -174,9 +149,19 @@ content that will be rendered into a file at some point.</p>
   the header-size that is rendered for the <code>section.title</code>.</li>
 <li><code>content (str)</code>: The Markdown-formatted content of the section.</li>
 </ul>
-<p><a name="pydocmd.document.Document"></a></p>
-<h2 id="document">Document</h2>
-<pre><code class="python">Document(index, url)
+<h3 id="pydocmd.document.Section.render">render</h3>
+
+<pre><code class="python">Section.render(self, stream)
+</code></pre>
+
+<p>Render the section into <em>stream</em>.</p>
+<h3 id="pydocmd.document.Section.index">index</h3>
+
+<p>Returns the <code>Index</code> that this section is associated with, accessed via
+<code>section.document</code>.</p>
+<h2 id="pydocmd.document.Document">Document</h2>
+
+<pre><code class="python">Document(self, index, url)
 </code></pre>
 
 <p>Represents a single document that may contain several <code>Section``s</code>. Every
@@ -186,9 +171,9 @@ document <em>must</em> have a relative URL associated with it.</p>
 <li><code>index (Index)</code>: The index that the document belongs to.</li>
 <li><code>url (str)</code>: The relative URL of the document.</li>
 </ul>
-<p><a name="pydocmd.document.Index"></a></p>
-<h2 id="index">Index</h2>
-<pre><code class="python">Index()
+<h2 id="pydocmd.document.Index">Index</h2>
+
+<pre><code class="python">Index(self)
 </code></pre>
 
 <p>The index manages all documents and sections globally. It keeps track of
@@ -198,6 +183,35 @@ from other sections.</p>
 <ul>
 <li><code>documents (dict)</code>:</li>
 <li><code>sections (dict)</code>:</li>
+</ul>
+<h3 id="pydocmd.document.Index.new_document">new_document</h3>
+
+<pre><code class="python">Index.new_document(self, filename, url=None)
+</code></pre>
+
+<p>Create a new document.</p>
+<p><strong>Arguments</strong></p>
+<ul>
+<li><strong>filename (str)</strong>: The filename of the document. Must end with <code>.md</code>.</li>
+<li><strong>url (str)</strong>: The relative URL of the document. If omitted, will be
+  automatically deduced from <em>filename</em> (same without the <code>.md</code> suffix).</li>
+</ul>
+<p><strong>Raises</strong></p>
+<ul>
+<li><code>ValueError</code>: If <em>filename</em> does not end with <code>.md</code>.</li>
+<li><code>ValueError</code>: If <em>filename</em> is not a relative path.</li>
+<li><code>ValueError</code>: If a document with the specified <em>filename</em> already exists.</li>
+</ul>
+<h3 id="pydocmd.document.Index.new_section">new_section</h3>
+
+<pre><code class="python">Index.new_section(self, doc, *args, **kwargs)
+</code></pre>
+
+<p>Create a new section in the specified document. The arguments for this
+method match the parameters for the <code>Section</code> constructor.</p>
+<p><strong>Raises</strong></p>
+<ul>
+<li><code>ValueError</code>: If the section identifier is already used.</li>
 </ul>
               
             </div>
@@ -234,7 +248,7 @@ from other sections.</p>
   <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
-          <a href="https://github.com/NiklasRosenstein/pydoc-markdown" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+          <a href="https://github.com/NiklasRosenstein/pydoc-markdown" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
         <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
