@@ -1,0 +1,47 @@
+site_name: "piquette"
+
+generate:
+  - piquette/samplers/filters/bag_filters.md:
+      - piquette.samplers.filters.bag_filters++
+  - piquette/samplers/filters/interval_filters.md:
+      - piquette.samplers.filters.interval_filters++
+  - piquette/samplers/algorithms.md:
+      - piquette.samplers.algorithms.base_algorithm++
+      - piquette.samplers.algorithms.det2d_xgb++
+  - piquette/samplers/objects.md:
+      - piquette.samplers.objects++
+  - piquette/samplers/mongo.md:
+    - piquette.tools.sampler_mongo+
+  - piquette/samplers/service.md:
+    - piquette.samplers.client
+
+  # tools
+  - piquette/tools/logger.md:
+      - piquette.tools.logger_tools+
+  - piquette/tools/tuyaco.md:
+      - piquette.tools.tuyaco_tools+
+
+pages:
+  - Home: index.md << ../README.md
+  - samplers:
+      - bag filters: piquette/samplers/filters/bag_filters.md
+      - interval filters: piquette/samplers/filters/interval_filters.md
+      - sample algorithms: piquette/samplers/algorithms.md
+      - objects: piquette/samplers/objects.md
+      - mongo: piquette/samplers/mongo.md
+  - tools:
+      - logger: piquette/tools/logger.md
+
+theme:
+  name: 'material'
+
+markdown_extensions:
+    - codehilite
+    - admonition
+    - pymdownx.superfences
+
+extra_css: [css/extra.css]
+
+headers: html
+additional_search_paths:
+  - ..

@@ -112,7 +112,7 @@ def dir_object(name, sort_order, need_docstrings=True):
   for key, value in getattr(obj, '__dict__', {}).items():
     if isinstance(value, (staticmethod, classmethod)):
       value = value.__func__
-    if key.startswith('_'): continue
+    if key.startswith('_') and key != '__init__': continue
     if not hasattr(value, '__doc__'): continue
 
     # If we have a type, we only want to skip it if it doesn't have
